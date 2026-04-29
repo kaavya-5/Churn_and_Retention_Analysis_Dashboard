@@ -20,7 +20,7 @@ Provide data-driven recommendations to reduce churn
 
 🛠️ Tools & Technologies Used
 
-Power BI / Excel / Python (Pandas, Matplotlib, Seaborn)
+Excel / Python (Pandas, Matplotlib, Seaborn)
 
 Data Cleaning & Preprocessing
 
