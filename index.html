@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Advanced Customer Churn Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000;
+    color: white;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Container */
+.container {
+    padding: 30px 40px;
+}
+
+/* Header */
+.title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 34px;
+    color: #00ffc3;
+}
+
+.subtitle {
+    color: #aaa;
+    margin-bottom: 30px;
+}
+
+/* KPI Section */
+.kpis {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 35px;
+}
+
+.kpi {
+    flex: 1;
+    min-width: 220px;
+    background: #111;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #00ffc3;
+    box-shadow: 0 0 10px rgba(0,255,195,0.2);
+}
+
+.kpi h3 {
+    font-size: 14px;
+    color: #bbb;
+}
+
+.kpi p {
+    font-size: 28px;
+    color: #00ffc3;
+    margin-top: 5px;
+}
+
+/* Section Title */
+.section-title {
+    font-size: 20px;
+    margin: 25px 0 10px;
+    color: #00ffc3;
+    border-left: 4px solid #00ffc3;
+    padding-left: 10px;
+}
+
+/* Charts Vertical Layout */
+.charts {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Card */
+.card {
+    background: #111;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #222;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+}
+
+/* Plotly Fix */
+.plotly-graph-div {
+    width: 100% !important;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #777;
+    font-size: 13px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    .title {
+        font-size: 26px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Header -->
+    <div class="title">⚡ Customer Churn Dashboard</div>
+    <div class="subtitle">Advanced Retention & Revenue Analytics</div>
+
+    <!-- KPI -->
+    <div class="kpis">
+        <div class="kpi">
+            <h3>Churn Rate</h3>
+            <p>{{ churn_rate }}%</p>
+        </div>
+
+        <div class="kpi">
+            <h3>Total Customers</h3>
+            <p>{{ total_customers }}</p>
+        </div>
+
+        <div class="kpi">
+            <h3>Average Revenue</h3>
+            <p>${{ avg_revenue }}</p>
+        </div>
+    </div>
+
+    <!-- Charts -->
+    <div class="charts">
+
+        <div class="section-title">📈 Churn Trend (Jan - Feb)</div>
+        <div class="card">{{ plot1 | safe }}</div>
+
+        <div class="section-title">📊 Churn by Plan</div>
+        <div class="card">{{ plot2 | safe }}</div>
+
+        <div class="section-title">💰 Revenue Distribution</div>
+        <div class="card">{{ plot3 | safe }}</div>
+
+        <div class="section-title">👥 Customer Segmentation</div>
+        <div class="card">{{ plot4 | safe }}</div>
+
+        <div class="section-title">📉 Cohort Retention Heatmap</div>
+        <div class="card">{{ plot5 | safe }}</div>
+
+        <div class="section-title">🤖 Churn Prediction (ML)</div>
+        <div class="card">{{ plot6 | safe }}</div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        🚀 Built with Flask • Plotly • Machine Learning | Internship-Level Project
+    </div>
+
+</div>
+
+</body>
+</html>
